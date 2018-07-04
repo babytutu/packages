@@ -1,6 +1,6 @@
 {
   "name": "tui-vue-logger",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "vue-logger",
   "main": "dist/index.js",
   "files": [
@@ -29,6 +29,5 @@
     "gulp-uglify": "^3.0.0",
     "mocha": "^5.1.1",
     "vue": "^2.5.16"
-  },
-  "dependencies": {}
+  }
 }

@@ -1,6 +1,6 @@
 {
   "name": "tui-vue-hooks",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "git hooks",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,6 @@
   "devDependencies": {
     "mocha": "^5.2.0"
   },
-  "dependencies": {},
   "tui-vue-hooks": {
     "commit-msg": [
       "feat",
