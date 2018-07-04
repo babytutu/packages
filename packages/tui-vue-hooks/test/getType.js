@@ -1,7 +1,7 @@
 const assert = require('assert')
 
 const { FgCyan } = require('../utils/color')
-const { type, typeString, rule } = require('../utils/getType')
+const { type, rule } = require('../utils/getType')
 
 console.log(FgCyan, `commit-msg type is ${type}`)
 

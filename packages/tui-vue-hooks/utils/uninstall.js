@@ -1,8 +1,7 @@
 const fs = require('fs')
-const path = require('path')
 
-const { FgCyan, FgRed, FgGreen } = require('./color')
-const { git, commitMsgHookPath } = require('./getPath')
+const { FgRed, FgGreen } = require('./color')
+const { commitMsgHookPath } = require('./getPath')
 
 // check .git/hooks/commit-msg directory,if yes, remove it
 const commitMsgHook = '.git/hooks/commit-msg'

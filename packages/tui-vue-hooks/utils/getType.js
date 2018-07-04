@@ -1,8 +1,3 @@
-const path = require('path')
-const fs = require('fs')
-
-const { FgCyan, FgRed, FgGreen } = require('./color')
-
 // get root package.json
 const { pkg } = require('./getPath')
 
