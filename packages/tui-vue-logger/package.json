@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/babytutu/tui-vue-logger.git"
+    "url": "git+https://github.com/babytutu/packages.git"
   },
   "keywords": [
     "vue",
@@ -21,10 +21,6 @@
   ],
   "author": "babytutu",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/babytutu/tui-vue-logger/issues"
-  },
-  "homepage": "https://github.com/babytutu/tui-vue-logger#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",

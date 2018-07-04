@@ -19,7 +19,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/babytutu/tui-vue-hooks.git"
+    "url": "git+ssh://git@github.com/babytutu/packages.git"
   },
   "devDependencies": {
     "mocha": "^5.2.0"
