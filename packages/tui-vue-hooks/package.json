@@ -1,0 +1,36 @@
+{
+  "name": "tui-vue-hooks",
+  "version": "0.1.0",
+  "description": "git hooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "postinstall": "node index",
+    "postuninstall": "node utils/uninstall"
+  },
+  "files": [
+    "utils"
+  ],
+  "keywords": [
+    "githook",
+    "commit-msg"
+  ],
+  "author": "babytutu",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/babytutu/tui-vue-hooks.git"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {},
+  "tui-vue-hooks": {
+    "commit-msg": [
+      "feat",
+      "fix",
+      "bug",
+      "css"
+    ]
+  }
+}

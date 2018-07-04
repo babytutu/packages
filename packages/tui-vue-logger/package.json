@@ -1,0 +1,38 @@
+{
+  "name": "tui-vue-logger",
+  "version": "0.0.3",
+  "description": "vue-logger",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "test": "mocha --require babel-core/register",
+    "build": "rm -rf dist && gulp compress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/babytutu/tui-vue-logger.git"
+  },
+  "keywords": [
+    "vue",
+    "log"
+  ],
+  "author": "babytutu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/babytutu/tui-vue-logger/issues"
+  },
+  "homepage": "https://github.com/babytutu/tui-vue-logger#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-uglify": "^3.0.0",
+    "mocha": "^5.1.1",
+    "vue": "^2.5.16"
+  },
+  "dependencies": {}
+}
