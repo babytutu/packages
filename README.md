@@ -8,6 +8,9 @@
 
 - [README.md](https://github.com/babytutu/packages/tree/master/packages/tui-vue-logger)
 
+## tui-vue-qrcode[<img src="https://img.shields.io/npm/v/tui-vue-qrcode.svg">](https://www.npmjs.com/package/tui-vue-qrcode)
+
+- [README.md](https://github.com/babytutu/packages/tree/master/packages/tui-vue-qrcode)
 
 # lerna
 
