@@ -8,6 +8,10 @@ const routes = [
     component: () => import('src/view/qrcode/index.vue'),
   },
   {
+    path: '/barcode',
+    component: () => import('src/view/barcode/index.vue'),
+  },
+  {
     path: '*',
     component: () => import('src/view/index.vue'),
   },
