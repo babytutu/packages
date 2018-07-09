@@ -1,6 +1,6 @@
-const QRious = require('qrious')
+import QRious from 'qrious'
 
-module.exports = {
+export default {
   name: 'qrcode',
   /**
    * @param {Number|String} value 二维码的内容
@@ -43,13 +43,11 @@ module.exports = {
      * 生成二维码
      */
     createQr() {
-      let options = Object.assign({
+      if (this.$el) new QRious({
         element: this.$el,
         value: String(this.value),
-      }, this.options)
-      if (this.$el) {
-        new QRious(options)
-      }
+        ...this.options
+      })
     },
   },
 }

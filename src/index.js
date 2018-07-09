@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './app.vue'
 import router from './router'
-import qrcode from '@pkg/tui-vue-qrcode'
+import qrcode from '@pkg/tui-vue-qrcode/src'
 
 Vue.component('qrcode', qrcode)
 

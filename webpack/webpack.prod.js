@@ -1,5 +1,4 @@
 const merge = require('webpack-merge')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ExtractCssChunks = require("extract-css-chunks-webpack-plugin")
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const common = require('./webpack.common.js')
@@ -7,9 +6,6 @@ const common = require('./webpack.common.js')
 module.exports = merge(common, {
   mode: 'production',
   plugins: [
-    new CleanWebpackPlugin(['dist'], {
-      root: process.cwd()
-    }),
     new ExtractCssChunks({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
