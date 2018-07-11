@@ -1,4 +1,4 @@
-import barcode from './../packages/tui-vue-barcode'
+import barcode from './../packages/tui-vue-barcode/src'
 
 describe('tui-vue-barcode', () => {
   it('renders props.options.height = 200 when passed', () => {

@@ -1,4 +1,4 @@
-import qrcode from './../packages/tui-vue-qrcode'
+import qrcode from './../packages/tui-vue-qrcode/src'
 
 describe('tui-vue-qrcode', () => {
   it('renders props.options.size = 200 when passed', () => {
