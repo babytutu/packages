@@ -3,9 +3,9 @@ import QRious from 'qrious'
 export default {
   name: 'qrcode',
   /**
-   * @param {Number|String} value 二维码的内容
-   * @param {String} type 二维码模式。img/canvas
-   * @param {Object} options 更多配置
+   * @param {Number|String} value content
+   * @param {String} type img/canvas
+   * @param {Object} options QRious options @see https://github.com/neocotic/qrious#api
    */
   props: {
     value: {
@@ -26,13 +26,13 @@ export default {
   },
   watch: {
     /**
-     * 监听内容源是否有发生变化
+     * watching value change
      */
     value() {
       this.createQr()
     },
     /**
-     * 监听配置是否有发生变化
+     * watching options change
      */
     options() {
       this.createQr()
@@ -40,13 +40,15 @@ export default {
   },
   methods: {
     /**
-     * 生成二维码
+     * QRious creat QRcode
      */
     createQr() {
-      if (this.$el) new QRious({
-        element: this.$el,
-        value: String(this.value),
-        ...this.options
+      this.$nextTick(() => {
+        new QRious({
+          element: this.$el,
+          value: String(this.value),
+          ...this.options
+        })
       })
     },
   },

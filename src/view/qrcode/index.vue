@@ -2,7 +2,8 @@
   <div>
     <input type="text"
            v-model="code">
-    <qrcode v-model="code"></qrcode>
+    <input type="text" v-model="size">
+    <qrcode v-model="code" :options="options"></qrcode>
     <qrcode v-model="code" type="img"></qrcode>
   </div>
 </template>
@@ -10,7 +11,15 @@
 export default {
   data() {
     return {
-      code: 'abc',
+      code: 'a',
+      size: 100
+    }
+  },
+  computed: {
+    options() {
+      return {
+        size: this.size
+      }
     }
   }
 }
