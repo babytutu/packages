@@ -56,4 +56,8 @@ describe('tui-vue-barcode', () => {
     })
   })
 
+  it('methods is a function', () => {
+    const vm = factory()
+    expect(typeof vm.createBarcode).toBe('function')
+  })
 })

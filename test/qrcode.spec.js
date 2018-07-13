@@ -12,14 +12,14 @@ describe('tui-vue-qrcode', () => {
     const size = 200
     expect(factory({
       options: {
-        size,
+        size
       }
     }).$el.width).toBe(size)
   })
 
   it('renders props.type = img when passed', () => {
     const type = 'img'
-    expect(setupComponent(qrcode, {
+    expect(factory({
       type,
     }).$el.tagName.toLowerCase()).toBe(type)
   })

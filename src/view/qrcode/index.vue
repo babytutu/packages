@@ -21,6 +21,13 @@ export default {
         size: this.size
       }
     }
+  },
+  created() {
+    this.log(this)
+    this.warn(123)
+    this.info(123)
+    this.error(111)
+    this.debug(2222)
   }
 }
 </script>

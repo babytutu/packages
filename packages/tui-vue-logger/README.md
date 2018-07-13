@@ -1,5 +1,5 @@
 # tui-vue-logger[<img src="https://img.shields.io/npm/v/tui-vue-logger.svg">](https://www.npmjs.com/package/tui-vue-logger)
-> default console types: 'info', 'log', 'warn', 'error'
+> console types: 'info', 'log', 'warn', 'error', 'debug'
 
 ## Install
 
@@ -14,10 +14,7 @@ import Vue from 'vue'
 
 import Logger from 'tui-vue-logger'
 
-Vue.use(Logger, {
-  types: ['debug'],
-  prefix: 'test'
-})
+Vue.use(Logger)
 ```
 
 If frist params is `this`, will output `file` & `route` at the end of logger
@@ -36,5 +33,4 @@ this.warn(4)
 
 | Name   | Desc        | Type   | Values | Default |
 | ------ | ----------- | ------ | ---- | ---- |
-| types  | logger types | Array  | ---- | ---- |
-| prefix  | prefix | String,Function  | ---- | ---- |
+| prefix  | prefix | String  | ---- | 'logger' |

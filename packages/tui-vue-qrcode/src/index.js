@@ -43,12 +43,10 @@ export default {
      * QRious creat QRcode
      */
     createQr() {
-      this.$nextTick(() => {
-        new QRious({
-          element: this.$el,
-          value: String(this.value),
-          ...this.options
-        })
+      new QRious({
+        element: this.$el,
+        value: String(this.value),
+        ...this.options
       })
     },
   },

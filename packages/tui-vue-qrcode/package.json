@@ -2,10 +2,9 @@
   "name": "tui-vue-qrcode",
   "version": "0.1.0",
   "description": "a vue qrcode component dependence on qrious",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "rm -rf dist && gulp"
-  },
+  "main": "dist/tui-vue-qrcode.min.js",
+  "module": "dist/tui-vue-qrcode.esm.js",
+  "scripts": {},
   "keywords": [
     "qrcode",
     "vue"
@@ -14,15 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "qrious": "^4.0.2"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.1",
-    "gulp-uglify": "^3.0.0",
-    "vue": "^2.5.16"
   },
   "files": [
     "dist",

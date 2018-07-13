@@ -29,9 +29,7 @@ export default {
      * JsBarcode creat barcode
      */
     createBarcode() {
-      this.$nextTick(() => {
-        JsBarcode(this.$el, this.value, this.options)
-      })
+      JsBarcode(this.$el, this.value || ' ', this.options)
     },
   },
   watch: {
