@@ -7,10 +7,7 @@
     "dist",
     "src"
   ],
-  "scripts": {
-    "test": "mocha --require babel-core/register",
-    "build": "rm -rf dist && gulp compress"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/babytutu/packages.git"
@@ -20,14 +17,5 @@
     "log"
   ],
   "author": "babytutu",
-  "license": "ISC",
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.1",
-    "gulp-uglify": "^3.0.0",
-    "mocha": "^5.1.1",
-    "vue": "^2.5.16"
-  }
+  "license": "ISC"
 }

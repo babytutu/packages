@@ -1,5 +1,5 @@
 # tui-vue-logger[<img src="https://img.shields.io/npm/v/tui-vue-logger.svg">](https://www.npmjs.com/package/tui-vue-logger)
-> default console types: 'info', 'log', 'warn', 'error'
+> console types: 'info', 'log', 'warn', 'error', 'debug'
 
 ## Install
 
@@ -14,9 +14,11 @@ import Vue from 'vue'
 
 import Logger from 'tui-vue-logger'
 
+Vue.use(Logger)
+
+// custom perfix
 Vue.use(Logger, {
-  types: ['debug'],
-  prefix: 'test'
+  prefix: 'xxx'
 })
 ```
 
@@ -30,11 +32,12 @@ this.error(3)
 // [TEST::ERROR] 3
 this.warn(4)
 // [TEST::WARN] 4
+this.log(5)
+// [TEST::LOG] 5
 ```
 
 ## Options
 
-| Name   | Desc        | Type   | Values | Default |
-| ------ | ----------- | ------ | ---- | ---- |
-| types  | logger types | Array  | ---- | ---- |
-| prefix  | prefix | String,Function  | ---- | ---- |
+| Name   | Desc   | Type   | Default  |
+| ------ | ------ | ------ | -------- |
+| prefix | prefix | String | logger |

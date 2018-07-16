@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{4:function(t,e,n){"use strict";n.r(e);var i=function(){var t=this.$createElement,e=this._self._c||t;return e("div",[e("router-link",{attrs:{to:{path:"/qrcode"}}},[this._v("qrcode")])],1)};i._withStripped=!0;var r=n(1),l=Object(r.a)(null,i,[],!1,null,null,null);l.options.__file="src/view/index.vue";e.default=l.exports}}]);

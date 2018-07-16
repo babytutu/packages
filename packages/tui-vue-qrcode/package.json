@@ -1,0 +1,21 @@
+{
+  "name": "tui-vue-qrcode",
+  "version": "0.1.0",
+  "description": "a vue qrcode component dependence on qrious",
+  "main": "dist/tui-vue-qrcode.min.js",
+  "module": "dist/tui-vue-qrcode.esm.js",
+  "scripts": {},
+  "keywords": [
+    "qrcode",
+    "vue"
+  ],
+  "author": "babytutu",
+  "license": "ISC",
+  "dependencies": {
+    "qrious": "^4.0.2"
+  },
+  "files": [
+    "dist",
+    "src"
+  ]
+}
