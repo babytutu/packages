@@ -16,6 +16,11 @@
 
 - [README.md](https://github.com/babytutu/packages/tree/master/packages/tui-vue-barcode)
 
+## tui-vue-highcharts[<img src="https://img.shields.io/npm/v/tui-vue-highcharts.svg">](https://www.npmjs.com/package/tui-vue-highcharts)
+
+- [README.md](https://github.com/babytutu/packages/tree/master/packages/tui-vue-highcharts)
+
+
 # lerna
 
 - A tool for managing JavaScript projects with multiple packages.

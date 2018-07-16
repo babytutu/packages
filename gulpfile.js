@@ -70,3 +70,5 @@ buildJS('tui-vue-qrcode')
 buildJS('tui-vue-barcode')
 
 buildJS('tui-vue-logger')
+
+buildJS('tui-vue-highcharts')

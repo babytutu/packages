@@ -1,6 +1,6 @@
 {
   "name": "tui-vue-qrcode",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "a vue qrcode component dependence on qrious",
   "main": "dist/tui-vue-qrcode.min.js",
   "module": "dist/tui-vue-qrcode.esm.js",
@@ -17,5 +17,9 @@
   "files": [
     "dist",
     "src"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/babytutu/packages.git"
+  }
 }

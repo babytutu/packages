@@ -15,6 +15,11 @@ const routes = [
     component: () => import('src/view/barcode/index.vue'),
   },
   {
+    path: '/highcharts',
+    name: 'highcharts',
+    component: () => import('src/view/highcharts/index.vue'),
+  },
+  {
     path: '*',
     component: () => import('src/view/index.vue'),
   },
