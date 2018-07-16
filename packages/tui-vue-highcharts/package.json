@@ -1,18 +1,18 @@
 {
-  "name": "tui-vue-barcode",
+  "name": "tui-vue-highcharts",
   "version": "0.0.2",
-  "description": "a vue barcode component dependence on jsbarcode",
-  "main": "dist/tui-vue-barcode.min.js",
-  "module": "dist/tui-vue-barcode.esm.js",
+  "description": "a vue qrcode component dependence on highcharts",
+  "main": "dist/tui-vue-highcharts.min.js",
+  "module": "dist/tui-vue-highcharts.esm.js",
   "scripts": {},
   "keywords": [
-    "barcode",
+    "highcharts",
     "vue"
   ],
   "author": "babytutu",
   "license": "ISC",
   "dependencies": {
-    "jsbarcode": "^3.9.0"
+    "highcharts": "^6.1.1"
   },
   "files": [
     "dist",
