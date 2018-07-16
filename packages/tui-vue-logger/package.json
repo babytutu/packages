@@ -1,6 +1,6 @@
 {
   "name": "tui-vue-logger",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "vue-logger",
   "main": "dist/index.js",
   "files": [
