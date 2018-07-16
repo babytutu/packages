@@ -1,6 +1,6 @@
 {
   "name": "tui-vue-jsbarcode",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a vue barcode component dependence on jsbarcode",
   "main": "dist/tui-vue-barcode.min.js",
   "module": "dist/tui-vue-barcode.esm.js",
