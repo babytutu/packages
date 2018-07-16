@@ -1,6 +1,6 @@
 {
   "name": "tui-vue-qrcode",
-  "version": "0.1.1",
+  "version": "0.0.1",
   "description": "a vue qrcode component dependence on qrious",
   "main": "dist/tui-vue-qrcode.min.js",
   "module": "dist/tui-vue-qrcode.esm.js",
