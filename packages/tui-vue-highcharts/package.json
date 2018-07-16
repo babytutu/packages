@@ -1,12 +1,12 @@
 {
   "name": "tui-vue-highcharts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a vue qrcode component dependence on highcharts",
-  "main": "dist/tui-vue-highchart.min.js",
-  "module": "dist/tui-vue-highchart.esm.js",
+  "main": "dist/tui-vue-highcharts.min.js",
+  "module": "dist/tui-vue-highcharts.esm.js",
   "scripts": {},
   "keywords": [
-    "highchart",
+    "highcharts",
     "vue"
   ],
   "author": "babytutu",
