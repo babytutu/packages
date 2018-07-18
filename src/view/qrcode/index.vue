@@ -1,17 +1,29 @@
 <template>
   <div>
-    <input type="text"
-           v-model="code">
-    <input type="text" v-model="size">
-    <qrcode v-model="code" :options="options"></qrcode>
-    <qrcode v-model="code" type="img"></qrcode>
+    <div class="form-group">
+      <label for="code">Code</label>
+      <input type="text"
+             class="form-control"
+             placeholder="Enter code"
+             v-model="code">
+    </div>
+    <div class="form-group">
+      <label for="size">Size</label>
+      <select v-model="size"
+              class="form-control">
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </div>
+    <qrcode v-model="code"
+            :options="options"></qrcode>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      code: 'a',
+      code: 'Hello World!',
       size: 100
     }
   },
@@ -21,13 +33,6 @@ export default {
         size: this.size
       }
     }
-  },
-  created() {
-    this.log(this)
-    this.warn(123)
-    this.info(123)
-    this.error(111)
-    this.debug(2222)
   }
 }
 </script>
