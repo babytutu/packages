@@ -1,0 +1,25 @@
+{
+  "name": "tui-vue-swiper",
+  "version": "1.0.0",
+  "description": "a vue swiper component dependence on swiper",
+  "main": "dist/tui-vue-swiper.min.js",
+  "module": "dist/tui-vue-swiper.esm.js",
+  "scripts": {},
+  "keywords": [
+    "swiper",
+    "vue"
+  ],
+  "author": "babytutu",
+  "license": "ISC",
+  "dependencies": {
+    "swiper": "^4.3.3"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/babytutu/packages.git"
+  }
+}

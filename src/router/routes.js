@@ -13,6 +13,10 @@ const component = [
     path: 'highcharts',
     codepen: 'NBWBRx',
   },
+  {
+    path: 'swiper',
+    codepen: ''
+  }
 ]
 
 component.forEach(i => {

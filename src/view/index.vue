@@ -17,7 +17,7 @@
     <div class="card-body">
       <router-view></router-view>
     </div>
-    <div class="card-body">
+    <!-- <div class="card-body">
       <iframe height='480'
               scrolling='no'
               :src="link"
@@ -26,7 +26,7 @@
               allowfullscreen='true'
               style='width: 100%;'>
       </iframe>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
