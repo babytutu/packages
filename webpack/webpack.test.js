@@ -1,14 +1,7 @@
-const path = require('path')
-
 module.exports = {
   mode: 'development',
   module: {
     rules: [
-      {
-        test: /\.(js|vue)/,
-        include: path.resolve('packages'),
-        use: ['istanbul-instrumenter-loader','babel-loader']
-      },
       {
         test: /\.vue$/,
         loader: 'vue-loader'
@@ -27,12 +20,11 @@ module.exports = {
       }
     ]
   },
-  devtool: '#eval-source-map',
+  devtool: 'eval',
   externals: [require('webpack-node-externals')()],
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     },
-    extensions: ['*', '.js', '.vue', '.json']
   },
 }

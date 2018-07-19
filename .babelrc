@@ -2,5 +2,17 @@
   "presets": [
     "env",
     "stage-0"
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        ["env", {
+          "modules": false,
+          "targets": { "node": "current" }
+        }],
+        "stage-0"
+      ],
+      "plugins": ["istanbul"]
+    }
+  }
 }
