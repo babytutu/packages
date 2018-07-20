@@ -15,7 +15,7 @@ const component = [
   },
   {
     path: 'swiper',
-    codepen: ''
+    codepen: 'GBNYoX'
   }
 ]
 

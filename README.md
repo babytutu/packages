@@ -20,6 +20,10 @@
 
 - [README.md](https://github.com/babytutu/packages/tree/master/packages/tui-vue-highcharts)
 
+## tui-vue-swiper[<img src="https://img.shields.io/npm/v/tui-vue-swiper.svg">](https://www.npmjs.com/package/tui-vue-swiper)
+
+- [README.md](https://github.com/babytutu/packages/tree/master/packages/tui-vue-swiper)
+
 
 # lerna
 
