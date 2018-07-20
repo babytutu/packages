@@ -1,25 +1,41 @@
 <template>
   <div class="swiper">
-    <swiper :height="400" :options="options">
+    <div class="form-group">
+      <label for="height">Height</label>
+      <select v-model="height"
+              class="form-control">
+        <option value="100">100</option>
+        <option value="300">300</option>
+      </select>
+    </div>
+    <swiper :height="height" :options="options">
       <swiper-slide>1</swiper-slide>
-      <swiper-slide>1</swiper-slide>
-      <swiper-slide>1</swiper-slide>
-      <swiper-slide>1</swiper-slide>
-      <swiper-slide>1</swiper-slide>
+      <swiper-slide>2</swiper-slide>
+      <swiper-slide>3</swiper-slide>
+      <swiper-slide>4</swiper-slide>
+      <swiper-slide>5</swiper-slide>
       <div slot="pagination" class="swiper-pagination"></div>
-      <div slot="button-next" class="swiper-button-next"></div>
-      <div slot="button-prev" class="swiper-button-prev"></div>
+      <div slot="next" class="swiper-button-next"></div>
+      <div slot="prev" class="swiper-button-prev"></div>
     </swiper>
   </div>
 </template>
 <script>
 export default {
+  data() {
+    return {
+      height: 300
+    }
+  },
   computed: {
     options() {
       return {
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
+          renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + '</span>';
+          },
         },
         // Navigation arrows
         navigation: {
@@ -33,6 +49,19 @@ export default {
 }
 </script>
 <style lang="stylus">
-.swiper
-  height 500px
+@import 'https://unpkg.com/swiper@4.3.3/dist/css/swiper.min.css'
+.swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  color:#000;
+  opacity: 1;
+  background: rgba(0,0,0,0.2);
+}
+.swiper-pagination-bullet-active {
+  color:#fff;
+  background: #007aff;
+}
 </style>

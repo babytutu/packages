@@ -14,8 +14,8 @@ Vue.use(Logger, {
 Vue.component('qrcode', qrcode)
 Vue.component('barcode', barcode)
 Vue.component('highcharts', highcharts)
-
-Vue.use(swiper)
+Vue.component('swiper', swiper.swiper)
+Vue.component('swiperSlide', swiper.swiperSlide)
 
 new Vue({
   router,
