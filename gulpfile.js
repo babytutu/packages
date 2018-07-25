@@ -60,7 +60,7 @@ function buildJS(dir) {
 
     await bundle.write({
       file: `./packages/${dir}/dist/${dir}.esm.js`,
-      format: 'esm',
+      format: 'es',
     })
   })
 }
