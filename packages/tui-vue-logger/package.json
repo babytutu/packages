@@ -1,6 +1,6 @@
 {
   "name": "tui-vue-logger",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "vue-logger",
   "main": "dist/tui-vue-logger.min.js",
   "module": "dist/tui-vue-logger.esm.js",
