@@ -7,7 +7,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    port: 9000,
+    port: 9001,
     useLocalIp: true,
     host: ip.address(),
     hot: true,
@@ -36,8 +36,8 @@ module.exports = merge(common, {
         use: [
           'vue-style-loader',
           'css-loader',
-          'stylus-loader',
           'postcss-loader',
+          'stylus-loader',
         ]
       },
     ]
