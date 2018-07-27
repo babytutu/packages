@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: {
@@ -15,6 +16,7 @@ module.exports = {
       title: 'packages-demo',
       template: path.join(process.cwd(), 'index.template.ejs'),
     }),
+    new VueLoaderPlugin(),
   ],
   module: {
     rules: [
@@ -43,7 +45,11 @@ module.exports = {
           'babel-loader',
           'eslint-loader',
         ],
-      }
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
     ],
   },
   resolve: {

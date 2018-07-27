@@ -1,17 +1,16 @@
 const merge = require('webpack-merge')
-const ExtractCssChunks = require("extract-css-chunks-webpack-plugin")
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const common = require('./webpack.common.js')
 
 module.exports = merge(common, {
   mode: 'production',
   plugins: [
-    new ExtractCssChunks({
+    new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
       filename: '[name]-[hash:8].css',
       chunkFilename: '[id]-[hash:8].css',
-      hot: false,
     }),
     new OptimizeCssAssetsPlugin(),
   ],
@@ -19,44 +18,21 @@ module.exports = merge(common, {
     rules: [{
         test: /\.css$/,
         use: [
-          ExtractCssChunks.loader,
+          'vue-style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader'
         ],
       },
       {
-        test: /\.styl$/,
+        test: /\.styl(us)?$/,
         use: [
-          ExtractCssChunks.loader,
+          'vue-style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
           'stylus-loader'
         ],
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            js: [
-              'babel-loader',
-              'eslint-loader'
-            ],
-            css: [
-              'vue-style-loader',
-              ExtractCssChunks.loader,
-              'css-loader',
-              'postcss-loader'
-            ],
-            stylus: [
-              'vue-style-loader',
-              ExtractCssChunks.loader,
-              'css-loader',
-              'postcss-loader',
-              'stylus-loader'
-            ],
-          },
-        },
       },
     ],
   },

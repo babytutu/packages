@@ -18,46 +18,27 @@ module.exports = merge(common, {
     }
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
     rules: [
       {
         test: /\.css$/,
         use: [
+          'vue-style-loader',
           'style-loader',
           'css-loader',
           'postcss-loader',
         ]
       },
       {
-        test: /\.styl$/,
+        test: /\.styl(us)?$/,
         use: [
-          'style-loader',
+          'vue-style-loader',
           'css-loader',
+          'stylus-loader',
           'postcss-loader',
-          { loader: 'stylus-loader', options: { sourceMap: false } },
         ]
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            js: ['babel-loader', 'eslint-loader'],
-            css: [
-              'vue-style-loader',
-              'css-loader',
-              'postcss-loader',
-            ],
-            stylus: [
-              'vue-style-loader',
-              'css-loader',
-              'postcss-loader',
-              { loader: 'stylus-loader', options: { sourceMap: false } },
-            ],
-          },
-        },
       },
     ]
   },

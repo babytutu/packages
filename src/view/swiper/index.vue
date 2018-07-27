@@ -49,7 +49,6 @@ export default {
 }
 </script>
 <style lang="stylus">
-@import 'https://unpkg.com/swiper@4.3.3/dist/css/swiper.min.css'
 .swiper-pagination-bullet {
   width: 20px;
   height: 20px;
