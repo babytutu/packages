@@ -1,5 +1,5 @@
 # tui-vue-logger[<img src="https://img.shields.io/npm/v/tui-vue-logger.svg">](https://www.npmjs.com/package/tui-vue-logger)
-> console types: 'info', 'log', 'warn', 'error', 'debug'
+> Console Types: 'info', 'log', 'warn', 'error', 'debug'
 
 ## Install
 
@@ -7,20 +7,61 @@
 npm install tui-vue-logger -D
 ```
 
+or
+
+```html
+  <script src="./tui-vue-logger.min.js"></script>
+```
+
 ## Usage
 
 ```js
 import Vue from 'vue'
-
 import Logger from 'tui-vue-logger'
 
 Vue.use(Logger)
 
 // custom perfix
 Vue.use(Logger, {
-  prefix: 'xxx'
+  prefix: 'test'
+})
+
+new Vue({
+  el: '#app',
+  created() {
+    this.log('Hello World!')
+  }
 })
 ```
+
+or
+
+```html
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://unpkg.com/tui-vue-logger@0.1.8/dist/tui-vue-logger.min.js"></script>
+</head>
+
+<body>
+  <div id="app">Open Console</div>
+  <script>
+    Vue.use(tuiVueLogger)
+
+    new Vue({
+      el: '#app',
+      created() {
+        this.log('Hello World!')
+      }
+    })
+  </script>
+</body>
+</html>
+```
+
 
 If frist params is `this`, will output `file` & `route` at the end of logger
 ```js
