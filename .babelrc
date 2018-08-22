@@ -3,9 +3,6 @@
     "env",
     "stage-0"
   ],
-  "plugins": [
-    "transform-runtime"
-  ],
   "env": {
     "test": {
       "presets": [

@@ -98,7 +98,7 @@ export default {
      * 如果没有定制的大转盘背景图，需要canvas绘制盘面
      * @param {array} val 数据
      */
-    async drawRouletteWheel(val) {
+    drawRouletteWheel(val) {
       if (!val.length) return
       const canvas = document.getElementById('wheelcanvas')
       if (canvas.getContext) {
