@@ -16,6 +16,9 @@ const component = [
   {
     path: 'swiper',
     codepen: 'GBNYoX'
+  },
+  {
+    path: 'turnplate'
   }
 ]
 

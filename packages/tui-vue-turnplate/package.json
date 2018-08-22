@@ -1,0 +1,25 @@
+{
+  "name": "tui-vue-turnplate",
+  "version": "0.0.1",
+  "description": "a vue turnplate component",
+  "main": "dist/tui-vue-turnplate.min.js",
+  "module": "dist/tui-vue-turnplate.esm.js",
+  "scripts": {},
+  "keywords": [
+    "turnplate",
+    "vue"
+  ],
+  "author": "babytutu",
+  "license": "ISC",
+  "dependencies": {
+    "velocity-animate": "^1.5.1"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/babytutu/packages.git"
+  }
+}

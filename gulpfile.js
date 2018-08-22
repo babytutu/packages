@@ -74,3 +74,5 @@ buildJS('tui-vue-logger')
 buildJS('tui-vue-highcharts')
 
 buildJS('tui-vue-swiper')
+
+buildJS('tui-vue-turnplate')
