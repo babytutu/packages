@@ -8,7 +8,6 @@ import highcharts from '@pkg/tui-vue-highcharts/src'
 import swiper from '@pkg/tui-vue-swiper/src'
 import turnplate from '@pkg/tui-vue-turnplate/src'
 
-import '@pkg/tui-vue-turnplate/src/style.css'
 Vue.use(Logger, {
   prefix: 'test',
 })
