@@ -1,6 +1,6 @@
 {
   "name": "tui-vue-turnplate",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a vue turnplate component",
   "main": "dist/tui-vue-turnplate.min.js",
   "module": "dist/tui-vue-turnplate.esm.js",
