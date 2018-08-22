@@ -18,7 +18,8 @@ const component = [
     codepen: 'GBNYoX'
   },
   {
-    path: 'turnplate'
+    path: 'turnplate',
+    codepen: 'rZaRyq'
   }
 ]
 
