@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@4.1.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@4.3.3/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tui-vue-turnplate@0.0.3/src/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+    <script src="dist/tui-vue-logger.min.js"></script>
+    <script src="dist/tui-vue-qrcode.min.js"></script>
+    <script src="dist/tui-vue-barcode.min.js"></script>
+    <script src="dist/tui-vue-highcharts.min.js"></script>
+    <script src="dist/tui-vue-swiper.min.js"></script>
+    <script src="dist/tui-vue-turnplate.min.js"></script>
+    <style>
+      .swiper-pagination-bullet {
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        color:#000;
+        opacity: 1;
+        background: rgba(0,0,0,0.2);
+      }
+      .swiper-pagination-bullet-active {
+        color:#fff;
+        background: #007aff;
+      }
+      .turn {
+        position: relative;
+        width: 300px;
+        height: 300px;
+      }
+
+      .gift {
+        position: absolute;
+        z-index: 33;
+        width: 200px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        padding: 10px;
+        background: #fff;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" class="card-body">
+      <div class="form-group">
+        <label for="code">Code</label>
+        <input type="text" class="form-control" placeholder="Enter code" v-model="code">
+      </div>
+      <div class="form-group">
+        <label for="height">Height</label>
+        <select v-model="height" class="form-control">
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="200">200</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="type">Type</label>
+        <select v-model="type" class="form-control">
+          <option value="line">line</option>
+          <option value="pie">pie</option>
+          <option value="bar">bar</option>
+          <option value="column">column</option>
+        </select>
+      </div>
+      <div class="turn">
+        <turnplate :gift="prizeList"
+                   :get-result="getResult"
+                   :disabled="disabled"
+                   :show-gift="showGift">{{disabled ? 'OVER' : 'GO'}}</turnplate>
+        <div class="gift" v-if="show">{{gift.type === 3 ? gift.name : `恭喜获得${gift.name}${gift.content}`}}</div>
+      </div>
+      <highcharts :options="options"></highcharts>
+      <swiper :height="swiperHeight" :options="options">
+        <swiper-slide>1</swiper-slide>
+        <swiper-slide>2</swiper-slide>
+        <swiper-slide>3</swiper-slide>
+        <swiper-slide>4</swiper-slide>
+        <swiper-slide>5</swiper-slide>
+        <div slot="pagination" class="swiper-pagination"></div>
+        <div slot="next" class="swiper-button-next"></div>
+        <div slot="prev" class="swiper-button-prev"></div>
+      </swiper>
+      <qrcode v-model="code" :options="qrOptions"></qrcode>
+      <barcode v-model="code" :options="options"></barcode>
+    </div>
+    <script>
+      Vue.use(tuiVueLogger)
+      Vue.use(tuiVueSwiper)
+
+      Vue.component(tuiVueQrcode.name, tuiVueQrcode)
+      Vue.component(tuiVueBarcode.name, tuiVueBarcode)
+      Vue.component(tuiVueHighcharts.name, tuiVueHighcharts)
+      Vue.component(tuiVueTurnplate.name, tuiVueTurnplate);
+
+      const app = new Vue({
+        el:'#app',
+        data() {
+          return {
+            code: 'Hello, World!',
+            height: 100,
+            swiperHeight: 200,
+            type: 'line',
+            prizeList: [
+              {
+                type: 1,
+                number: 1,
+                name: '一等奖',
+                content: '电子券50-50',
+              },
+              {
+                type: 1,
+                number: 2,
+                name: '二等奖',
+                content: '电子券30-30',
+              },
+              {
+                type: 1,
+                number: 3,
+                name: '三等奖',
+                content: '电子券20-20',
+              },
+              {
+                type: 1,
+                number: 4,
+                name: '四等奖',
+                content: '电子券10-10',
+              },
+              {
+                type: 2,
+                number: 5,
+                name: '五等奖',
+                content: '玩偶',
+              },
+              {
+                type: 3,
+                number: 6,
+                name: '谢谢参与',
+                content: '',
+              },
+            ],
+            gift: {},
+            show: false,
+            disabled: false
+          }
+        },
+        created() {
+          this.log('Hello World!')
+        },
+        computed: {
+          // qrcode配置
+          qrOptions() {
+            return {
+              size: this.height
+            }
+          },
+          options() {
+            return {
+              // barcode配置
+              height: this.height,
+              // swiper配置
+              pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                renderBullet: function (index, className) {
+                  return '<span class="' + className + '">' + (index + 1) + '</span>';
+                },
+              },
+              // Navigation arrows
+              navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              },
+              loop: true,
+              // highcharts配置
+              series: [
+                { name: 'Other',
+                  data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
+                }
+              ],
+              chart: {
+                height: this.height,
+                type: this.type
+              },
+              credits:{
+                enabled: false
+              },
+              title: {
+                text: ''
+              },
+              legend: {
+                enabled: false
+              },
+            }
+          }
+        },
+        methods: {
+          getResult() {
+            return new Promise((resolve, reject) => {
+              const num = Math.round(Math.random()*5)
+              this.gift = this.prizeList[num]
+              resolve(this.gift.number)
+            })
+          },
+          showGift() {
+            this.show = true
+            setTimeout(() => {
+              this.show = false
+            }, 1500)
+          }
+        },
+      })
+    </script>
+  </body>
+</html>

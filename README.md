@@ -29,7 +29,7 @@
 
 - A tool for managing JavaScript projects with multiple packages.
 
-- [DOCS](https://lernajs.io/)
+- [DOCS](https://lerna.js.org/)
 
 ## commands
 

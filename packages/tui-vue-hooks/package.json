@@ -4,7 +4,6 @@
   "description": "git hooks",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
     "postinstall": "node index",
     "postuninstall": "node utils/uninstall"
   },
@@ -20,9 +19,6 @@
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/babytutu/packages.git"
-  },
-  "devDependencies": {
-    "mocha": "^5.2.0"
   },
   "tui-vue-hooks": {
     "commit-msg": [
