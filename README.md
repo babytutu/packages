@@ -43,6 +43,32 @@ lerna init -i
 // installs all of packages dependencies
 lerna bootstrap
 
+// List all of the public packages in the current Lerna repo
+lerna ls
+
 // publish all packages
 lerna publish
+```
+
+## lerna.json
+
+[lerna github](https://github.com/lerna/lerna)
+
+```json
+{
+  // 包路径
+  "packages": [
+    "packages/*"
+  ],
+  // 安装依赖包方式。默认`npm`，可配置为`yarn`
+  "npmClient": "yarn",
+  // 指定lerna版本
+  "version": "independent",
+  "command": {
+    "publish": {
+      // lerna changed命令忽略的文件改动，数组形式
+      "ignoreChanges": ["package.json", "*.lock", "package-lock.json"]
+    }
+  }
+}
 ```

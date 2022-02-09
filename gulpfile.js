@@ -1,10 +1,14 @@
 const rollup = require('rollup')
 const eslint = require('@rollup/plugin-eslint')
 const babel = require('@rollup/plugin-babel').babel
+// 将 CommonJS 转换成 ES2015 模块
 const commonjs = require('@rollup/plugin-commonjs')
+// 告诉 Rollup 如何查找外部模块。 安装它
 const nodeResolve = require('@rollup/plugin-node-resolve').nodeResolve
+// 压缩代码
 const terser = require('rollup-plugin-terser').terser
-
+const VuePlugin = require('rollup-plugin-vue')
+const postcss = require('rollup-plugin-postcss')
 /**
  * rollup配置参数
  * @param {String} input 代码入口路径
@@ -13,9 +17,15 @@ const terser = require('rollup-plugin-terser').terser
 const rollupOption = (input) => ({
   input,
   plugins: [
-    terser(),
+    postcss({
+      extensions: ['.stylus']
+    }),
     nodeResolve(),
     commonjs(),
+    VuePlugin({
+      css: true,
+      compileTemplate: true
+    }),
     eslint({
       env: {
         browser: true,
@@ -56,6 +66,7 @@ const rollupOption = (input) => ({
       exclude: ['node_modules/**'],
       babelHelpers: 'bundled',
     }),
+    terser(),
   ]
 })
 
@@ -63,8 +74,8 @@ const rollupOption = (input) => ({
  * rollup with dir
  * @param {String} dir 代码目录名称
  */
-async function buildJS(dir) {
-  const name = dir.replace(/-(\w)/g, ($0, $1) => $1.toUpperCase())
+async function buildJS (dir) {
+  const name = dir.replace(/-(\w)/g, (args) => args[1].toUpperCase())
   console.log('buildJS', dir, name)
   const bundle = await rollup.rollup(rollupOption(`./packages/${dir}/src/index.js`))
 
@@ -87,8 +98,8 @@ async function buildJS(dir) {
  * rollup with dir
  * @param {String} dir 代码目录名称
  */
- async function buildDemoJS(dir) {
-  const name = dir.replace(/-(\w)/g, ($0, $1) => $1.toUpperCase())
+async function buildDemoJS (dir) {
+  const name = dir.replace(/-(\w)/g, (args) => args[1].toUpperCase())
   console.log('buildDemoJS', dir, name)
   const bundle = await rollup.rollup(rollupOption(`./packages/${dir}/src/index.js`))
 
@@ -96,13 +107,13 @@ async function buildJS(dir) {
     file: `demo/dist/${dir}.min.js`,
     format: 'umd',
     name,
-    sourcemap: false
   })
 
   console.log('done', dir)
 }
 
-async function defaultTask(cb) {
+// 默认gulp任务
+async function defaultTask (cb) {
   // place code for your default task here
   await buildJS('tui-vue-qrcode')
   await buildJS('tui-vue-barcode')
@@ -113,13 +124,14 @@ async function defaultTask(cb) {
   cb()
 }
 
+// 本地测试gulp任务
 async function testTask (cb) {
-  await buildDemoJS('tui-vue-logger')
-  await buildDemoJS('tui-vue-qrcode')
-  await buildDemoJS('tui-vue-barcode')
-  await buildDemoJS('tui-vue-highcharts')
-  await buildDemoJS('tui-vue-swiper')
-  await buildDemoJS('tui-vue-turnplate')
+  // await buildDemoJS('tui-vue-logger')
+  // await buildDemoJS('tui-vue-qrcode')
+  // await buildDemoJS('tui-vue-barcode')
+  // await buildDemoJS('tui-vue-highcharts')
+  // await buildDemoJS('tui-vue-turnplate')
+  await buildDemoJS('tui-vue-player')
   cb()
 }
 

@@ -6,7 +6,11 @@
   "version": "independent",
   "command": {
     "publish": {
-      "ignoreChanges": ["package.json", "*.lock", "package-lock.json"]
+      "ignoreChanges": [
+        "package.json",
+        "*.lock",
+        "package-lock.json"
+      ]
     }
   }
 }

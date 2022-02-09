@@ -14,6 +14,7 @@
     <script src="dist/tui-vue-highcharts.min.js"></script>
     <script src="dist/tui-vue-swiper.min.js"></script>
     <script src="dist/tui-vue-turnplate.min.js"></script>
+    <script src="dist/tui-vue-player.min.js"></script>
     <style>
       .swiper-pagination-bullet {
         width: 20px;
@@ -71,40 +72,53 @@
           <option value="column">column</option>
         </select>
       </div>
-      <div class="turn">
-        <turnplate :gift="prizeList"
-                   :get-result="getResult"
-                   :disabled="disabled"
-                   :show-gift="showGift">{{disabled ? 'OVER' : 'GO'}}</turnplate>
-        <div class="gift" v-if="show">{{gift.type === 3 ? gift.name : `恭喜获得${gift.name}${gift.content}`}}</div>
-      </div>
       <highcharts :options="options"></highcharts>
-      <swiper :height="swiperHeight" :options="options">
-        <swiper-slide>1</swiper-slide>
-        <swiper-slide>2</swiper-slide>
-        <swiper-slide>3</swiper-slide>
-        <swiper-slide>4</swiper-slide>
-        <swiper-slide>5</swiper-slide>
-        <div slot="pagination" class="swiper-pagination"></div>
-        <div slot="next" class="swiper-button-next"></div>
-        <div slot="prev" class="swiper-button-prev"></div>
-      </swiper>
       <qrcode v-model="code" :options="qrOptions"></qrcode>
       <barcode v-model="code" :options="options"></barcode>
+      <div class="form-group">
+        <swiper :height="swiperHeight" :options="options">
+          <swiper-slide>1</swiper-slide>
+          <swiper-slide>2</swiper-slide>
+          <swiper-slide>3</swiper-slide>
+          <swiper-slide>4</swiper-slide>
+          <swiper-slide>5</swiper-slide>
+          <div slot="pagination" class="swiper-pagination"></div>
+          <div slot="next" class="swiper-button-next"></div>
+          <div slot="prev" class="swiper-button-prev"></div>
+        </swiper>
+        <vue-player :list="list"></vue-player>
+      </div>
+      <div class="form-group">
+        <div class="turn">
+          <turnplate :gift="prizeList"
+                     :get-result="getResult"
+                     :disabled="disabled"
+                     :show-gift="showGift">{{disabled ? 'OVER' : 'GO'}}</turnplate>
+          <div class="gift" v-if="show">{{gift.type === 3 ? gift.name : `恭喜获得${gift.name}${gift.content}`}}</div>
+        </div>
+      </div>
     </div>
     <script>
       Vue.use(tuiVueLogger)
       Vue.use(tuiVueSwiper)
+      Vue.use(tuiVuePlayer)
 
       Vue.component(tuiVueQrcode.name, tuiVueQrcode)
       Vue.component(tuiVueBarcode.name, tuiVueBarcode)
       Vue.component(tuiVueHighcharts.name, tuiVueHighcharts)
-      Vue.component(tuiVueTurnplate.name, tuiVueTurnplate);
+      Vue.component(tuiVueTurnplate.name, tuiVueTurnplate)
 
       const app = new Vue({
         el:'#app',
         data() {
           return {
+            list: [
+              {
+                name: 'Not a Sad Song.mp3',
+                src: './static/sample.mp3',
+              },
+            ],
+            showDialog: false,
             code: 'Hello, World!',
             height: 100,
             swiperHeight: 200,
