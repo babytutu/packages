@@ -38,6 +38,14 @@ const routes = [
     meta: {
       codepen: 'rZaRyq'
     }
+  },
+  {
+    path: '/player',
+    name: 'player',
+    component: () => import('@/views/player/index.vue'),
+    meta: {
+      codepen: 'VwrpQZm'
+    }
   }
 ]
 

@@ -1,4 +1,4 @@
-# tui-vue-player[<img src="https://img.shields.io/npm/v/tui-vue-swiper.svg">](https://www.npmjs.com/package/tui-vue-swiper)
+# tui-vue-player[<img src="https://img.shields.io/npm/v/tui-vue-player.svg">](https://www.npmjs.com/package/tui-vue-player)
 
 a vue audio player component
 
