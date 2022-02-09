@@ -1,6 +1,6 @@
 {
   "name": "tui-vue-player",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a vue audio player component",
   "main": "dist/tui-vue-player.min.js",
   "module": "dist/tui-vue-player.esm.js",
