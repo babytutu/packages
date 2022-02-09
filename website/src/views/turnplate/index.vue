@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     getResult () {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         const num = Math.round(Math.random() * 5)
         this.gift = this.prizeList[num]
         resolve(this.gift.number)

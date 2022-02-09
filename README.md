@@ -24,6 +24,9 @@
 
 - [README.md](https://github.com/babytutu/packages/tree/master/packages/tui-vue-swiper)
 
+## tui-vue-player[<img src="https://img.shields.io/npm/v/tui-vue-player.svg">](https://www.npmjs.com/package/tui-vue-player)
+
+- [README.md](https://github.com/babytutu/packages/tree/master/packages/tui-vue-player)
 
 # lerna
 
