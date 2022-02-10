@@ -9,7 +9,7 @@ module.exports = {
   outputDir: 'dist', // 修改打包输出目录
   assetsDir: 'static',
   devServer: {
-    port: 1113 // 默认端口号
+    port: 5555 // 默认端口号
   },
   /**
    * 开启vscode调试

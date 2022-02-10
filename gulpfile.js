@@ -115,22 +115,12 @@ async function buildDemoJS (dir) {
 // 默认gulp任务
 async function defaultTask (cb) {
   // place code for your default task here
-  await buildJS('tui-vue-qrcode')
-  await buildJS('tui-vue-barcode')
-  await buildJS('tui-vue-logger')
-  await buildJS('tui-vue-highcharts')
-  await buildJS('tui-vue-swiper')
-  await buildJS('tui-vue-turnplate')
+  await buildJS('tui-vue-player')
   cb()
 }
 
 // 本地测试gulp任务
 async function testTask (cb) {
-  // await buildDemoJS('tui-vue-logger')
-  // await buildDemoJS('tui-vue-qrcode')
-  // await buildDemoJS('tui-vue-barcode')
-  // await buildDemoJS('tui-vue-highcharts')
-  // await buildDemoJS('tui-vue-turnplate')
   await buildDemoJS('tui-vue-player')
   cb()
 }
