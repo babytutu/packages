@@ -1,12 +1,10 @@
 <template>
   <div class="audio-player-container" @mousedown="onDragBegin" :style="mini ? floatStyleObj : ''">
-    <audioPlayer ref="audioPlayer" v-if="!isIE()" :rates="rates" :miniable="miniable" :list="list" @change="changeStatus" @close="close"></audioPlayer>
-    <playerIe ref="playerIe" v-else :rates="rates" :miniable="miniable" :list="list" @change="changeStatus" @close="close"></playerIe>
+    <player ref="player" :rates="rates" :miniable="miniable" :list="list" @change="changeStatus" @close="close"></player>
   </div>
 </template>
 <script>
-import audioPlayer from './audio-player.vue'
-import playerIe from './player-ie.vue'
+import player from './player.vue'
 
 /**
  * 音频播放器
@@ -15,13 +13,12 @@ import playerIe from './player-ie.vue'
 export default {
   name: 'vue-player',
   components: {
-    audioPlayer,
-    playerIe,
+    player,
   },
   /**
    * @name Props
    * @prop {Array} list 音频文件数组
-   * @prop {Boolean} [miniable=false] 是否可最小化，默认否
+   * @prop {Boolean} [miniable = false] 是否可最小化，默认否
    */
   props: {
     /**
@@ -66,13 +63,6 @@ export default {
   },
   methods: {
     /**
-     * 判断是否ie
-     * @returns {boolean} 是否ie
-     */
-    isIE () {
-      return !(window.AudioContext || window.webkitAudioContext)
-    },
-    /**
      * 回到常规模式
      * @param {boolean} val 是否迷你模式
      */
@@ -89,11 +79,7 @@ export default {
      * 关闭音频播放器，供外部调用触发
      */
     closePlayer () {
-      if (this.isIE()) {
-        this.$refs.playerIe.closePlayer()
-      } else {
-        this.$refs.audioPlayer.closePlayer()
-      }
+      this.$refs.player.closePlayer()
     },
     /**
      * 最小化后的内部关闭按钮触发

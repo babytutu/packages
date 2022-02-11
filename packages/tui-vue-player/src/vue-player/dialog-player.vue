@@ -2,11 +2,13 @@
   <div :class="mini ? 'audio-player-mini' : 'audio-player-warper'">
     <div class="audio-dialog">
       <div v-if="!mini" class="audio-dialog-header">
-        <span class="audio-dialog-title">录音播放</span>
+        <span class="audio-dialog-title">{{title}}</span>
         <svg class="audio-dialog-headerBtn" @click="closePlayer" viewBox="0 0 1024 1024" width="20" height="20"><path d="M517.08411984 479.11475483L301.90637831 263.93753776a26.85237631 26.85237631 0 1 0-37.98667221 37.95153335l215.17669262 215.19504873L263.91970607 732.27864411a26.85237631 26.85237631 0 1 0 37.96936504 37.96884057l215.19504878-215.17669264 215.19504866 215.17669264a26.85237631 26.85237631 0 1 0 37.9688406-37.95100889l-215.17669262-215.2123559 215.17669262-215.1772171a26.85237631 26.85237631 0 1 0-37.9688406-37.96936505L517.10195147 479.11475483z"></path></svg>
       </div>
       <div class="audio-dialog-body">
+        <slot />
         <vuePlayer miniable ref="aplayer" v-if="value" :list="list" @change="changeStatus" @close="closePlayer"></vuePlayer>
+        <slot name="footer" />
       </div>
     </div>
   </div>
@@ -64,6 +66,7 @@ $dialog_close_highlight_color = #fff
 $dialog_header_bg = #EDEFF3
 
 .audio-player {
+  box-sizing: content-box;
   &-mini{
     position: fixed;
     top 0
@@ -82,9 +85,7 @@ $dialog_header_bg = #EDEFF3
 
     .audio-dialog {
       width: 420px;
-      max-height: 200px;
       opacity: 1
-      position: relative;
       margin: 15vh auto;
       background: #fff;
       border-radius: 2px;
@@ -92,12 +93,14 @@ $dialog_header_bg = #EDEFF3
       box-sizing: border-box;
 
       &-header {
+        position: relative;
         padding: 10px 20px;
         border-radius: 4px 4px 0 0;
         background: $dialog_header_bg;
         text-align: center;
-        height: 40px;
+        height: 24px;
         line-height: 24px;
+        box-sizing: content-box;
       }
 
       &-title {

@@ -42,9 +42,9 @@ export const AudioPlayer = class {
    * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement
    * @param {string} src 音频地址
    */
-  initPlayer (src = this.src, volume) {
+  initPlayer (src = this.src, volume = 1) {
     this.audio = new Audio(src)
-    if (volume) this.audio.volume = volume
+    this.audio.volume = volume
     this.changeRate(this.playbackRate)
 
     // 音频加载完成后
