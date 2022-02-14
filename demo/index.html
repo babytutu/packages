@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap@4.1.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@4.3.3/dist/css/swiper.min.css">
     <link rel="stylesheet" href="https://unpkg.com/tui-vue-turnplate@0.0.3/src/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.min.js"></script>
     <script src="dist/tui-vue-logger.min.js"></script>
     <script src="dist/tui-vue-qrcode.min.js"></script>
     <script src="dist/tui-vue-barcode.min.js"></script>
@@ -50,51 +50,62 @@
     </style>
   </head>
   <body>
-    <div id="app" class="card-body">
-      <div class="form-group">
-        <label for="code">Code</label>
-        <input type="text" class="form-control" placeholder="Enter code" v-model="code">
+    <div id="app" class="container card-body">
+      <div class="card-header">
+        <!-- Navbar content -->
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item"
+              v-for="i in menu"
+              :key="i">
+            <a @click="changeActive(i)" class="nav-link" :class="{'active': i === active}">{{i}}</a>
+          </li>
+        </ul>
       </div>
-      <div class="form-group">
-        <label for="height">Height</label>
-        <select v-model="height" class="form-control">
-          <option value="50">50</option>
-          <option value="100">100</option>
-          <option value="200">200</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="type">Type</label>
-        <select v-model="type" class="form-control">
-          <option value="line">line</option>
-          <option value="pie">pie</option>
-          <option value="bar">bar</option>
-          <option value="column">column</option>
-        </select>
-      </div>
-      <highcharts :options="options"></highcharts>
-      <qrcode v-model="code" :options="qrOptions"></qrcode>
-      <barcode v-model="code" :options="options"></barcode>
-      <div class="form-group">
-        <swiper :height="swiperHeight" :options="options">
-          <swiper-slide>1</swiper-slide>
-          <swiper-slide>2</swiper-slide>
-          <swiper-slide>3</swiper-slide>
-          <swiper-slide>4</swiper-slide>
-          <swiper-slide>5</swiper-slide>
-          <div slot="pagination" class="swiper-pagination"></div>
-          <div slot="next" class="swiper-button-next"></div>
-          <div slot="prev" class="swiper-button-prev"></div>
-        </swiper>
-        <vue-player :list="list"></vue-player>
-      </div>
-      <div class="form-group">
-        <div class="turn">
-          <turnplate :gift="prizeList"
-                     :get-result="getResult"
-                     :disabled="disabled"
-                     :show-gift="showGift">{{disabled ? 'OVER' : 'GO'}}</turnplate>
-          <div class="gift" v-if="show">{{gift.type === 3 ? gift.name : `恭喜获得${gift.name}${gift.content}`}}</div>
+      <div class="card">
+        <div class="card-body" v-if="active === 'swiper'">
+          <swiper :height="300" :options="options">
+            <swiper-slide v-for="i in 5" :key="i">{{i}}</swiper-slide>
+            <div slot="pagination" class="swiper-pagination"></div>
+            <div slot="next" class="swiper-button-next"></div>
+            <div slot="prev" class="swiper-button-prev"></div>
+          </swiper>
+        </div>
+        <div class="card-body" v-if="active === 'highcharts'">
+          <div class="form-group">
+            <label for="type">Type</label>
+            <select v-model="type" class="form-control">
+              <option value="line">line</option>
+              <option value="pie">pie</option>
+              <option value="bar">bar</option>
+              <option value="column">column</option>
+            </select>
+          </div>
+          <highcharts :options="options"></highcharts>
+        </div>
+        <div class="card-body" v-if="active === 'code'">
+          <div class="form-group">
+            <label for="code">Code</label>
+            <input type="text" class="form-control" placeholder="Enter code" v-model="code">
+          </div>
+          <p>
+            <qrcode v-model="code"></qrcode>
+          </p>
+          <p>
+            <barcode v-model="code"></barcode>
+          </p>
+        </div>
+        <div class="card-body" v-if="active === 'turnplate'">
+          <div class="turn">
+            <turnplate :gift="prizeList"
+                       :get-result="getResult"
+                       :disabled="disabled"
+                       :show-gift="showGift">{{disabled ? 'OVER' : 'GO'}}</turnplate>
+            <div class="gift" v-if="show">{{gift.type === 3 ? gift.name : `恭喜获得${gift.name}${gift.content}`}}</div>
+          </div>
+        </div>
+        <div class="card-body" v-if="active === 'player'">
+          <a class="btn" @click="showPlay = true">音频播放</a>
+          <vue-player ref="player" miniable :list="list" v-if="showPlay" @close="showPlay = false"></vue-player>
         </div>
       </div>
     </div>
@@ -118,10 +129,8 @@
                 src: './static/sample.mp3',
               },
             ],
-            showDialog: false,
+            showPlay: false,
             code: 'Hello, World!',
-            height: 100,
-            swiperHeight: 200,
             type: 'line',
             prizeList: [
               {
@@ -163,23 +172,17 @@
             ],
             gift: {},
             show: false,
-            disabled: false
+            disabled: false,
+            active: 'code',
+            menu: ['code', 'highcharts', 'turnplate', 'swiper', 'player']
           }
         },
         created() {
           this.log('Hello World!')
         },
         computed: {
-          // qrcode配置
-          qrOptions() {
-            return {
-              size: this.height
-            }
-          },
           options() {
             return {
-              // barcode配置
-              height: this.height,
               // swiper配置
               pagination: {
                 el: '.swiper-pagination',
@@ -201,7 +204,7 @@
                 }
               ],
               chart: {
-                height: this.height,
+                height: 300,
                 type: this.type
               },
               credits:{
@@ -217,6 +220,9 @@
           }
         },
         methods: {
+          changeActive (i) {
+            this.active = i
+          },
           getResult() {
             return new Promise((resolve, reject) => {
               const num = Math.round(Math.random()*5)
@@ -229,7 +235,7 @@
             setTimeout(() => {
               this.show = false
             }, 1500)
-          }
+          },
         },
       })
     </script>

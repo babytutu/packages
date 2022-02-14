@@ -7,7 +7,7 @@ import Logger from '@pkg/tui-vue-logger/src'
 import highcharts from '@pkg/tui-vue-highcharts/src'
 import swiper from '@pkg/tui-vue-swiper/src'
 import turnplate from '@pkg/tui-vue-turnplate/src'
-import player from '@pkg/tui-vue-player/src'
+import vuePlayer from '@pkg/tui-vue-player/src'
 
 Vue.config.productionTip = false
 Vue.component('qrcode', qrcode)
@@ -19,7 +19,7 @@ Vue.component('turnplate', turnplate)
 Vue.use(Logger, {
   prefix: 'test'
 })
-Vue.use(player)
+Vue.use(vuePlayer)
 
 new Vue({
   router,

@@ -114,12 +114,14 @@ export const AudioPlayer = class {
   /**
    * 重置加载
    */
-  reload () {
+  reload (src) {
     this.pause()
     if (this.audio && this.audio.currentTime) {
       this.audio.currentTime = 0
     }
+    this.audio.src = src
     this.status = 'ended'
+    this.togglePlay()
   }
 
   /**
